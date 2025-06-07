@@ -16,3 +16,45 @@ h6 {
   color: #000000;
   text-align: center;
 }
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 20px;
+  margin-top: -200px;
+}
+
+.container .flag1 img,
+.container .flag2 img {
+  width: 200px;
+  height: auto;
+}
+
+.container2 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 20px;
+  margin-top: 50px;
+}
+
+.container2 .flag1 img,
+.container2 .flag2 img {
+  width: 200px;
+  height: auto;
+}
+
+.container3 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 20px;
+  margin-top: 50px;
+}
+
+.container3 .flag1 img,
+.container3 .flag2 img {
+  width: 200px;
+  height: auto;
+}

@@ -65,7 +65,7 @@ h6 {
   height: auto;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 450px) {
   .container .flag1 img,
   .container2 .flag1 img,
   .container3 .flag1 img {

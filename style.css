@@ -1,87 +1,11 @@
 html, body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
 }
 
-
-body {
-  background-color: #6c009e;
-}
-
-h1 {
-  color: #ff00ea;
-  text-align: center;
-}
-
-h2 {
-  color: #ff00ea;
-  text-align: center;
-}
-
-h6 {
-  color: #000000;
-  text-align: center;
-}
-
-.container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0 20px;
-  margin-top: -200px;
-}
-
-.container .flag1 img,
-.container .flag2 img {
-  width: 200px;
-  height: auto;
-}
-
-.container2 {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0 20px;
-  margin-top: 50px;
-}
-
-.container2 .flag1 img,
-.container2 .flag2 img {
-  width: 200px;
-  height: auto;
-}
-
-.container3 {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0 20px;
-  margin-top: 50px;
-}
-
-.container3 .flag1 img,
-.container3 .flag2 img {
-  width: 200px;
-  height: auto;
-}
-
-@media (max-width: 780px) {
-  
-  .container, .container2, .container3 {
-    justify-content: space-between;
-    padding: 0 15px;
-  }
-
-  .container .flag1 img,
-  .container2 .flag1 img,
-  .container3 .flag1 img,
-  .container .flag2 img,
-  .container2 .flag2 img,
-  .container3 .flag2 img {
-    width: 80px;
-    height: auto;
-    margin: 0;
-    transform: none;
-  }
+main {
+    height: calc(100vh - 64px);
+    overflow: hidden;
 }

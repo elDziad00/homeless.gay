@@ -95,12 +95,25 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-llama-id="58" data-llama-editable="true">
                 <!-- Media Item 0 (Video Only) -->
                 <div class="cursor-pointer" data-llama-id="74" data-llama-editable="true">
-                    <video class="w-full h-48 object-cover transition transform hover:scale-105" controls data-llama-id="75" data-llama-editable="true">
+                    <video id="video-sigma" class="w-full h-48 object-cover transition transform hover:scale-105" controls data-llama-id="75" data-llama-editable="true">
                         <source src="/img/media/sigma.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                     <p class="mt-2 text-center" data-llama-id="76" data-llama-editable="true">Sailing The Seven Seas ⛵</p>
                 </div>
+                <!-- Media Item 0 (Video Only) -->
+                <div class="cursor-pointer" data-llama-id="74" data-llama-editable="true">
+                    <video id="video-sigma2" class="w-full h-48 object-cover transition transform hover:scale-105" controls data-llama-id="75" data-llama-editable="true">
+                        <source src="/img/media/sigma2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="mt-2 text-center" data-llama-id="76" data-llama-editable="true">Da 7 Seaz 😎⛵</p>
+                </div>
+                <script>
+                // Set base volume for only these two videos to 50%
+                document.getElementById('video-sigma').volume = 0.5;
+                document.getElementById('video-sigma2').volume = 0.5;
+                </script>
                 <!-- Media Item 1 -->
                 <div class="cursor-pointer" onclick="openModal('/img/media/media25.jpg', '🤯')" data-llama-id="59" data-llama-editable="true">
                     <img src="/img/media/media25.jpg" alt="🤯" class="w-full h-48 object-cover transition transform hover:scale-105" data-llama-id="60" data-llama-editable="true">

@@ -18,6 +18,23 @@
             background-size: 200% 200%;
             animation: gradient-x 3s ease infinite;
         }
+        .profile-card {
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .profile-card.expanded {
+            transform: scale(1.05);
+            background-color: rgba(31, 41, 55, 0.8);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+        .extra-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .profile-card.expanded .extra-content {
+            max-height: 500px;
+        }
     </style>
 </head>
 <body class="bg-black text-white" data-llama-id="6" data-llama-editable="true">
@@ -90,30 +107,54 @@
             <!-- Profile Cards Grid -->
             <div class="grid gap-6 md:grid-cols-3" data-llama-id="53" data-llama-editable="true">
                 <!-- Profile Card 1 -->
-                <div onclick="expandCard('elDziad0')" class="cursor-pointer relative p-[2px] bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 rounded-lg animate-gradient-x hover:scale-105 transition-transform" data-llama-id="54" data-llama-editable="true">
-                    <div class="bg-gray-900 p-4 rounded-lg flex flex-col items-center space-y-3" data-llama-id="55" data-llama-editable="true">
+                <div class="profile-card w-full max-w-sm mx-auto border border-red-500 rounded-lg p-6 bg-gray-900 bg-opacity-50 animate-gradient-x hover:scale-105 transition-transform" role="button" tabindex="0" aria-expanded="false" data-llama-id="54" data-llama-editable="true">
+                    <div class="flex flex-col items-center" data-llama-id="55" data-llama-editable="true">
                         <img src="/img/elDziad0.png" alt="elDziad0" class="w-20 h-20 rounded-full object-cover" data-llama-id="56" data-llama-editable="true">
                         <h3 class="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600" data-llama-id="57" data-llama-editable="true">elDziad0</h3>
                         <p class="text-sm text-gray-400" data-llama-id="58" data-llama-editable="true">Freaky Guy</p>
                         <p class="text-center text-sm" data-llama-id="59" data-llama-editable="true">Aggressive tendencies / Bites / Don’t touch my tail. 😾</p>
                     </div>
+                    <div class="extra-content mt-4" data-llama-id="60" data-llama-editable="true">
+                        <p class="text-sm text-gray-300" data-llama-id="61" data-llama-editable="true">Lorem ipsum dolor sit, amet consectetur suck my dick.</p>
+                        <br>
+                        <div class="mt-3 flex gap-4" data-llama-id="67" data-llama-editable="true">
+                            <button onclick="navigator.clipboard.writeText('elDziad0'); showToast('Copied nickname: elDziad0');" class="bg-red-500 px-3 py-1 rounded text-xs hover:bg-red-600" data-llama-id="68" data-llama-editable="true">Discord</button>
+                            <a href="https://www.roblox.com/users/278039610/profile" target="_blank" rel="noopener noreferrer" class="bg-red-500 px-3 py-1 rounded text-xs hover:bg-red-600" data-llama-id="69" data-llama-editable="true">Roblox</a>
+                        </div>
+                    </div>
                 </div>
                 <!-- Profile Card 2 -->
-                <div onclick="expandCard('niumios')" class="cursor-pointer relative p-[2px] bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 rounded-lg animate-gradient-x hover:scale-105 transition-transform" data-llama-id="60" data-llama-editable="true">
-                    <div class="bg-gray-900 p-4 rounded-lg flex flex-col items-center space-y-3" data-llama-id="61" data-llama-editable="true">
-                        <img src="/img/niumios.png" alt="niumios" class="w-20 h-20 rounded-full object-cover" data-llama-id="62" data-llama-editable="true">
-                        <h3 class="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600" data-llama-id="63" data-llama-editable="true">niumios</h3>
-                        <p class="text-sm text-gray-400" data-llama-id="64" data-llama-editable="true">Edgy Girl</p>
-                        <p class="text-center text-sm" data-llama-id="65" data-llama-editable="true">Head of the 9/11 v.2 Operation / Jumping Is Not a Crime ☣️</p>
+                <div class="profile-card w-full max-w-sm mx-auto border border-blue-500 rounded-lg p-6 bg-gray-900 bg-opacity-50 animate-gradient-x hover:scale-105 transition-transform" role="button" tabindex="0" aria-expanded="false" data-llama-id="70" data-llama-editable="true">
+                    <div class="flex flex-col items-center" data-llama-id="71" data-llama-editable="true">
+                        <img src="/img/niumios.png" alt="niumios" class="w-20 h-20 rounded-full object-cover" data-llama-id="72" data-llama-editable="true">
+                        <h3 class="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600" data-llama-id="73" data-llama-editable="true">niumios</h3>
+                        <p class="text-sm text-gray-400" data-llama-id="74" data-llama-editable="true">Edgy Girl</p>
+                        <p class="text-center text-sm" data-llama-id="75" data-llama-editable="true">Head of the 9/11 v.2 Operation / Jumping Is Not a Crime ☣️</p>
+                    </div>
+                    <div class="extra-content mt-4" data-llama-id="60" data-llama-editable="true">
+                        <p class="text-sm text-gray-300" data-llama-id="61" data-llama-editable="true">Lorem ipsum dolor sit, amet consectetur suck my dick.</p>
+                        <br>
+                        <div class="mt-3 flex gap-4" data-llama-id="67" data-llama-editable="true">
+                            <button onclick="navigator.clipboard.writeText('nium1'); showToast('Copied nickname: nium1');" class="bg-red-500 px-3 py-1 rounded text-xs hover:bg-red-600" data-llama-id="68" data-llama-editable="true">Discord</button>
+                            <a href="https://www.roblox.com/users/176593633/profile" target="_blank" rel="noopener noreferrer" class="bg-red-500 px-3 py-1 rounded text-xs hover:bg-red-600" data-llama-id="69" data-llama-editable="true">Roblox</a>
+                        </div>
                     </div>
                 </div>
                 <!-- Profile Card 3 -->
-                <div onclick="expandCard('Buslife')" class="cursor-pointer relative p-[2px] bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 rounded-lg animate-gradient-x hover:scale-105 transition-transform" data-llama-id="66" data-llama-editable="true">
-                    <div class="bg-gray-900 p-4 rounded-lg flex flex-col items-center space-y-3" data-llama-id="67" data-llama-editable="true">
-                        <img src="/img/Buslife.png" alt="Buslife" class="w-20 h-20 rounded-full object-cover" data-llama-id="68" data-llama-editable="true">
-                        <h3 class="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600" data-llama-id="69" data-llama-editable="true">Bus_life2020</h3>
-                        <p class="text-sm text-gray-400" data-llama-id="70" data-llama-editable="true">Drug Addict</p>
-                        <p class="text-center text-sm" data-llama-id="65" data-llama-editable="true">Engages in human trafficking as a hobby / Turns into P Diddy at night 🤫</p>
+                <div class="profile-card w-full max-w-sm mx-auto border border-purple-500 rounded-lg p-6 bg-gray-900 bg-opacity-50 animate-gradient-x hover:scale-105 transition-transform" role="button" tabindex="0" aria-expanded="false" data-llama-id="86" data-llama-editable="true">
+                    <div class="flex flex-col items-center" data-llama-id="87" data-llama-editable="true">
+                        <img src="/img/Buslife.png" alt="Buslife" class="w-20 h-20 rounded-full object-cover" data-llama-id="88" data-llama-editable="true">
+                        <h3 class="text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600" data-llama-id="89" data-llama-editable="true">Bus_life2020</h3>
+                        <p class="text-sm text-gray-400" data-llama-id="90" data-llama-editable="true">Drug Addict</p>
+                        <p class="text-center text-sm" data-llama-id="91" data-llama-editable="true">Engages in human trafficking as a hobby / Turns into P Diddy at night 🤫</p>
+                    </div>
+                    <div class="extra-content mt-4" data-llama-id="60" data-llama-editable="true">
+                        <p class="text-sm text-gray-300" data-llama-id="61" data-llama-editable="true">Lorem ipsum dolor sit, amet consectetur suck my dick.</p>
+                        <br>
+                        <div class="mt-3 flex gap-4" data-llama-id="67" data-llama-editable="true">
+                            <button onclick="navigator.clipboard.writeText('cooknow'); showToast('Copied nickname: cooknow');" class="bg-red-500 px-3 py-1 rounded text-xs hover:bg-red-600" data-llama-id="68" data-llama-editable="true">Discord</button>
+                            <a href="https://www.roblox.com/users/1944745915/profile" target="_blank" rel="noopener noreferrer" class="bg-red-500 px-3 py-1 rounded text-xs hover:bg-red-600" data-llama-id="69" data-llama-editable="true">Roblox</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -128,8 +169,21 @@
             var menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         });
-        
-        
+
+        const profileCards = document.querySelectorAll('.profile-card');
+        profileCards.forEach(card => {
+            card.addEventListener('click', function(){
+                card.classList.toggle('expanded');
+                const expanded = card.classList.contains('expanded');
+                card.setAttribute('aria-expanded', expanded);
+            });
+            card.addEventListener('keydown', function(e){
+                if(e.key === 'Enter' || e.key === ' '){
+                    card.click();
+                }
+            });
+        });
+
         function showToast(message) {
             const toast = document.getElementById('toast');
             toast.textContent = message;
@@ -139,6 +193,4 @@
             }, 2000);
         }
     </script>
-
-
 </body></html>

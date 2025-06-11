@@ -180,12 +180,71 @@
                 </div>
             </div>
         </div>
+        <!-- Placeholder Map Section -->
+        <div class="mt-16 flex flex-col md:flex-row items-start gap-8 w-full max-w-5xl mx-auto">
+            <div class="flex-1 flex flex-col items-center">
+                <h2 class="text-3xl font-bold text-center mb-4">Roleplay Map</h2>
+                <!-- Rainbow Separator -->
+                <div class="flex justify-center mb-8">
+                    <div class="flex space-x-1">
+                        <div class="w-6 h-1 bg-red-600"></div>
+                        <div class="w-6 h-1 bg-orange-500"></div>
+                        <div class="w-6 h-1 bg-yellow-400"></div>
+                        <div class="w-6 h-1 bg-green-500"></div>
+                        <div class="w-6 h-1 bg-blue-600"></div>
+                        <div class="w-6 h-1 bg-purple-600"></div>
+                    </div>
+                </div>
+                <div class="relative w-full max-w-2xl aspect-square rounded-xl overflow-hidden shadow-lg border-4 border-blue-700 bg-gradient-to-br from-blue-900 via-cyan-800 to-purple-900 flex items-center justify-center cursor-pointer group" id="map-placeholder">
+                    <img src="/img/map.png" alt="Map Placeholder"
+                        class="w-full h-full object-contain transition duration-300 group-hover:opacity-80" id="map-image">
+                </div>
+            </div>
+            <div class="flex-1 mt-10 md:mt-0 md:ml-4 bg-gray-900 bg-opacity-70 rounded-xl p-6 shadow-lg border border-blue-800">
+                <div class="space-y-6 text-base md:text-lg text-gray-100">
+                    <div>
+                        <span class="text-lg md:text-xl font-semibold text-blue-400">🛑 Hangout Spot 1 – Park Camping</span>
+                        <p class="mt-1">A prime piece of public infrastructure real estate. We throw a homeless party between two lanes of traffic and a park. Prime loitering, peak tent placement. Most used for pissing people off and practicing roadkill evasion. :3</p>
+                    </div>
+                    <div class="border-t border-gray-700"></div>
+                    <div>
+                        <span class="text-lg md:text-xl font-semibold text-green-400">🔥 Hangout Spot 2– Fire Bushes</span>
+                        <p class="mt-1">Directly outside the fire station. Buried deep in the bushes, hidden from view. Ideal for plotting arson or just being freaky. Also used as quick cover when the cops show up. ;D</p>
+                    </div>
+                    <div class="border-t border-gray-700"></div>
+                    <div>
+                        <span class="text-lg md:text-xl font-semibold text-orange-400">🔧 Hangout Spot 3– Tool Store Chill Zone</span>
+                        <p class="mt-1">Low-key vibes only. A bushy utopia for the truly cooked. Good for deep homeless thoughts and illegal brick consumption. (;</p>
+                    </div>
+                    <div class="border-t border-gray-700"></div>
+                    <div>
+                        <span class="text-lg md:text-xl font-semibold text-red-400">🏹 Hangout Spot 4– Sniper tower</span>
+                        <p class="mt-1">Great for when peace talks fail and war crimes are back on the menu. Bring your stolen rifle - long-range harassment encouraged. ;o</p>
+                    </div>
+                    <div class="border-t border-gray-700"></div>
+                    <div>
+                        <span class="text-lg md:text-xl font-semibold text-purple-400">🚜 Hangout Spot 5 – Lawn Warfare Zone</span>
+                        <p class="mt-1">A field of grass that never asked for this. We roll deep on lawnmowers like they deserve it. Great for asserting dominance, mostly with no shirts on. ;p</p>
+                    </div>
+                    <div class="border-t border-gray-700"></div>
+                    <div>
+                        <span class="text-lg md:text-xl font-semibold text-yellow-300">🎢 Hangout Spot 6 – a slide?</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
-    
+
+    <!-- Modal for fullscreen image -->
+    <div id="map-modal" class="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 hidden">
+        <img id="modal-map-image" src="" alt="Map Fullscreen" class="max-w-full max-h-full rounded-xl shadow-2xl border-4 border-blue-700">
+        <button id="close-map-modal" class="absolute top-6 right-8 text-white text-4xl font-bold hover:text-cyan-400 transition">&times;</button>
+    </div>
+
     <!-- Toast Notification -->
-    <div id="toast" class="fixed top-5 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-10 px-4 py-2 rounded-md backdrop-blur-sm opacity-0 transition-opacity duration-500 text-white" data-llama-id="72" data-llama-editable="true"></div>
+    <div id="toast" class="fixed top-5 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-10 px-4 py-2 rounded-md backdrop-blur-sm opacity-0 transition-opacity duration-500 text-white"></div>
     
-    <script data-llama-id="73" data-llama-editable="true">
+    <script>
         document.getElementById('hamburger').addEventListener('click', function() {
             var menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
@@ -193,7 +252,14 @@
 
         const profileCards = document.querySelectorAll('.profile-card');
         profileCards.forEach(card => {
-            card.addEventListener('click', function(){
+            card.addEventListener('click', function(e){
+                // Prevent collapse/expand if a button or link inside the card was clicked
+                if (
+                    e.target.tagName === 'BUTTON' ||
+                    e.target.tagName === 'A'
+                ) {
+                    return;
+                }
                 card.classList.toggle('expanded');
                 const expanded = card.classList.contains('expanded');
                 card.setAttribute('aria-expanded', expanded);
@@ -213,5 +279,27 @@
                 toast.classList.remove('opacity-100');
             }, 2000);
         }
+
+        // Map placeholder modal logic
+        const mapPlaceholder = document.getElementById('map-placeholder');
+        const mapModal = document.getElementById('map-modal');
+        const modalMapImage = document.getElementById('modal-map-image');
+        const mapImage = document.getElementById('map-image');
+        const closeMapModal = document.getElementById('close-map-modal');
+
+        mapPlaceholder.addEventListener('click', function() {
+            modalMapImage.src = mapImage.src;
+            mapModal.classList.remove('hidden');
+        });
+
+        closeMapModal.addEventListener('click', function() {
+            mapModal.classList.add('hidden');
+        });
+
+        mapModal.addEventListener('click', function(e) {
+            if (e.target === mapModal) {
+                mapModal.classList.add('hidden');
+            }
+        });
     </script>
 </body></html>
